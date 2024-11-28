@@ -54,5 +54,5 @@ func _physics_process(delta: float) -> void:
 	camPitch.rotation_degrees.x = pitch
 	
 	camVector = (camRoot - camera.position)
-	print(camVector)
+	#print(camVector)
 	#Global.forwardDirection = Vector2(position.x, position.z)

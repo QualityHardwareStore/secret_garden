@@ -9,6 +9,8 @@ const JUMP_VELOCITY = 10
 @export var camera : Node3D
 
 
+
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -26,6 +28,7 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	direction = -(direction.rotated(Vector3.UP, camera.rotation.y).normalized())
+	#has to be minus because its flipped for some reason ^^^
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
@@ -41,6 +44,8 @@ func _physics_process(delta: float) -> void:
 	
 	
 	move_and_slide()
+	
+	
 	
 	#debugging shit
 	

@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=4 uid="uid://bh4y2b2gfoerr"]
+[gd_scene load_steps=9 format=4 uid="uid://btjdmha3k2xt3"]
 
-[ext_resource type="Texture2D" uid="uid://bglmq8lf2immh" path="res://blender_imports/weenie_v4_rigging_weenie.png" id="1_fyefm"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8yvof"]
+load_path = "res://.godot/imported/weenie_v4_rigging_weenie.png-358556f4b825b6b16d467f74b91c3a94.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6xdq"]
 resource_name = "creature"
 cull_mode = 2
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_fyefm")
+albedo_texture = SubResource("CompressedTexture2D_8yvof")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vx6gh"]
