@@ -34,6 +34,12 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 	
+	# make model face direction
+	
+	
+	
+	
+	
 	move_and_slide()
 	
 	#debugging shit

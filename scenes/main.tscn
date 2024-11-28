@@ -113,7 +113,7 @@ camera = NodePath("../camRoot/camYaw")
 [node name="tatu" parent="SubViewportContainer/SubViewport/game/CharacterBody3D" instance=ExtResource("2_rnij2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/game/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.573966, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.559624, 0)
 shape = SubResource("CapsuleShape3D_qrpsc")
 
 [node name="maze" type="Node3D" parent="SubViewportContainer/SubViewport/game" groups=["real"]]
