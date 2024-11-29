@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://df2v4s8t5i3df"]
+[gd_scene load_steps=25 format=3 uid="uid://df2v4s8t5i3df"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_k0lh5"]
 [ext_resource type="Script" path="res://scripts/camera_controller.gd" id="2_4qkjv"]
@@ -6,7 +6,8 @@
 [ext_resource type="Material" uid="uid://bhi6wk7o7xxcj" path="res://materials/real.tres" id="3_uvxcy"]
 [ext_resource type="Script" path="res://scripts/cam_position_controller.gd" id="3_wuf4r"]
 [ext_resource type="Script" path="res://scripts/maze.gd" id="4_t62du"]
-[ext_resource type="Script" path="res://scenes/spirit_maze.gd" id="6_31b17"]
+[ext_resource type="Script" path="res://scripts/spirit_maze.gd" id="6_31b17"]
+[ext_resource type="PackedScene" uid="uid://d260hbco743lg" path="res://blender_imports/floor_test.glb" id="9_2pb6t"]
 [ext_resource type="PackedScene" uid="uid://da52xtucg8lsq" path="res://player.tscn" id="10_87lgo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ebt1"]
@@ -44,10 +45,10 @@ size = Vector3(9.26367, 6.68372, 11.557)
 size = Vector3(9.26367, 6.68463, 7.29669)
 
 [sub_resource type="BoxMesh" id="BoxMesh_vwr44"]
-size = Vector3(10, 0.1, 20)
+size = Vector3(10, 0.1, 10)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bxxdv"]
-data = PackedVector3Array(-5, 0.05, 10, 5, 0.05, 10, -5, -0.05, 10, 5, 0.05, 10, 5, -0.05, 10, -5, -0.05, 10, 5, 0.05, -10, -5, 0.05, -10, 5, -0.05, -10, -5, 0.05, -10, -5, -0.05, -10, 5, -0.05, -10, 5, 0.05, 10, 5, 0.05, -10, 5, -0.05, 10, 5, 0.05, -10, 5, -0.05, -10, 5, -0.05, 10, -5, 0.05, -10, -5, 0.05, 10, -5, -0.05, -10, -5, 0.05, 10, -5, -0.05, 10, -5, -0.05, -10, 5, 0.05, 10, -5, 0.05, 10, 5, 0.05, -10, -5, 0.05, 10, -5, 0.05, -10, 5, 0.05, -10, -5, -0.05, 10, 5, -0.05, 10, -5, -0.05, -10, 5, -0.05, 10, 5, -0.05, -10, -5, -0.05, -10)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jgstc"]
+data = PackedVector3Array(-5, 0.05, 5, 5, 0.05, 5, -5, -0.05, 5, 5, 0.05, 5, 5, -0.05, 5, -5, -0.05, 5, 5, 0.05, -5, -5, 0.05, -5, 5, -0.05, -5, -5, 0.05, -5, -5, -0.05, -5, 5, -0.05, -5, 5, 0.05, 5, 5, 0.05, -5, 5, -0.05, 5, 5, 0.05, -5, 5, -0.05, -5, 5, -0.05, 5, -5, 0.05, -5, -5, 0.05, 5, -5, -0.05, -5, -5, 0.05, 5, -5, -0.05, 5, -5, -0.05, -5, 5, 0.05, 5, -5, 0.05, 5, 5, 0.05, -5, -5, 0.05, 5, -5, 0.05, -5, 5, 0.05, -5, -5, -0.05, 5, 5, -0.05, 5, -5, -0.05, -5, 5, -0.05, 5, 5, -0.05, -5, -5, -0.05, -5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_vtcbn"]
 material = ExtResource("3_uvxcy")
@@ -137,13 +138,13 @@ script = ExtResource("4_t62du")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.067, -5)
 
 [node name="floormesh" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/game/maze/StaticBody3D_floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000583649, -0.0200701, 0.0485287)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000583649, -0.0200701, 5.04853)
 mesh = SubResource("BoxMesh_vwr44")
 skeleton = NodePath("../../../../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/game/maze/StaticBody3D_floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000583649, -0.0200701, 0.0485287)
-shape = SubResource("ConcavePolygonShape3D_bxxdv")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000583649, -0.0200701, 5.04853)
+shape = SubResource("ConcavePolygonShape3D_jgstc")
 
 [node name="bush" type="StaticBody3D" parent="SubViewportContainer/SubViewport/game/maze"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83076, 0, 2.07619)
@@ -239,6 +240,9 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/game/spirit_maze/spirit4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("ConcavePolygonShape3D_iy30j")
+
+[node name="floor_test" parent="SubViewportContainer/SubViewport/game" instance=ExtResource("9_2pb6t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -11)
 
 [connection signal="body_entered" from="SubViewportContainer/SubViewport/game/camera_areas/cam_1" to="SubViewportContainer/SubViewport/game/camera_controller" method="_on_cam_1_body_entered"]
 [connection signal="body_entered" from="SubViewportContainer/SubViewport/game/camera_areas/cam_2" to="SubViewportContainer/SubViewport/game/camera_controller" method="_on_cam_2_body_entered"]
