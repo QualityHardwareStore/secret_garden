@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://7o01h8b6k5lc"]
+[gd_scene load_steps=10 format=4 uid="uid://7o01h8b6k5lc"]
 
 [ext_resource type="Script" path="res://scripts/key.gd" id="1_1r4yl"]
 [ext_resource type="Texture2D" uid="uid://dc4rl7tlxquol" path="res://blender_imports/key_crappy_metal_128px.png" id="1_jkfur"]
+[ext_resource type="AudioStream" uid="uid://dgcvo2g1mjjcq" path="res://audio/twink le.mp3" id="3_rqdw6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qpx2q"]
 resource_name = "key"
@@ -91,5 +92,9 @@ libraries = {
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00933838, 0.316231, 0)
 shape = SubResource("BoxShape3D_vdi2x")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rqdw6")
+volume_db = -3.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

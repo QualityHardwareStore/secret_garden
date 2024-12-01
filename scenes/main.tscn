@@ -1,12 +1,16 @@
-[gd_scene load_steps=26 format=3 uid="uid://df2v4s8t5i3df"]
+[gd_scene load_steps=33 format=3 uid="uid://df2v4s8t5i3df"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_k0lh5"]
 [ext_resource type="Script" path="res://scripts/camera_controller.gd" id="2_4qkjv"]
 [ext_resource type="Shader" path="res://materials/dither.gdshader" id="2_ek6qi"]
+[ext_resource type="FontFile" uid="uid://dutqsnhuaoj3k" path="res://addons/TooMuchInk.ttf" id="2_wael4"]
 [ext_resource type="Script" path="res://scripts/cam_position_controller.gd" id="3_wuf4r"]
+[ext_resource type="AudioStream" uid="uid://bonmldkdtchxy" path="res://audio/wind_with_birds.ogg" id="4_10f2p"]
 [ext_resource type="Script" path="res://scripts/maze.gd" id="4_t62du"]
 [ext_resource type="Script" path="res://scripts/spirit_maze.gd" id="6_31b17"]
 [ext_resource type="PackedScene" uid="uid://ccrqvx3f1ld8d" path="res://scenes/level_test_2.tscn" id="7_s7lnq"]
+[ext_resource type="Script" path="res://scenes/number_of_keys.gd" id="7_yrpr6"]
+[ext_resource type="Script" path="res://scripts/press_e_to_see.gd" id="8_lhjlu"]
 [ext_resource type="PackedScene" uid="uid://tjmkqkxrwcfe" path="res://scenes/gardencube.tscn" id="8_sjyok"]
 [ext_resource type="PackedScene" uid="uid://b45ckjo3dxto8" path="res://scenes/gardenspiritcube.tscn" id="9_tp1s6"]
 [ext_resource type="PackedScene" uid="uid://da52xtucg8lsq" path="res://scenes/player.tscn" id="10_87lgo"]
@@ -50,13 +54,22 @@ volumetric_fog_albedo = Color(0.876536, 0.768779, 0.749289, 1)
 size = Vector3(9.26367, 6.68372, 7.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hb1u3"]
-size = Vector3(10.5, 6.68463, 9)
+size = Vector3(10, 6, 9)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_48mhf"]
 size = Vector3(6, 6.68463, 7.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s5guh"]
 size = Vector3(5.58893, 6.68463, 7.06396)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nnuo3"]
+size = Vector3(5.58893, 8.03731, 9.95605)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fm7b4"]
+size = Vector3(8, 12, 9.95605)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tccfs"]
+size = Vector3(3, 9.5, 9)
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_k0lh5")
@@ -67,11 +80,106 @@ stream = ExtResource("11_nb87a")
 [node name="spiritbell2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_v4qew")
 
+[node name="ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_10f2p")
+volume_db = 5.0
+parameters/looping = true
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_5ebt1")
 custom_minimum_size = Vector2(800, 600)
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="ui" type="Control" parent="SubViewportContainer"]
+layout_mode = 2
+
+[node name="Keys" type="Label" parent="SubViewportContainer/ui"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 57.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("2_wael4")
+theme_override_font_sizes/font_size = 20
+text = "Keys:"
+
+[node name="number of keys" type="Label" parent="SubViewportContainer/ui"]
+layout_mode = 0
+offset_left = 61.31
+offset_top = 5.0
+offset_right = 73.31
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("2_wael4")
+theme_override_font_sizes/font_size = 20
+script = ExtResource("7_yrpr6")
+
+[node name="out of 3" type="Label" parent="SubViewportContainer/ui"]
+layout_mode = 0
+offset_left = 75.475
+offset_top = 5.0
+offset_right = 95.475
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("2_wael4")
+theme_override_font_sizes/font_size = 20
+text = "/3"
+
+[node name="timer" type="Label" parent="SubViewportContainer/ui"]
+visible = false
+layout_mode = 0
+offset_left = 668.2
+offset_top = 5.0
+offset_right = 720.2
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("2_wael4")
+theme_override_font_sizes/font_size = 20
+text = "Time:"
+
+[node name="win" type="Label" parent="SubViewportContainer/ui"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 32.0
+offset_right = 240.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("2_wael4")
+theme_override_font_sizes/font_size = 56
+text = "You Win!"
+
+[node name="win2" type="Label" parent="SubViewportContainer/ui"]
+visible = false
+layout_mode = 0
+offset_left = 9.0
+offset_top = 83.0
+offset_right = 177.0
+offset_bottom = 139.0
+theme_override_fonts/font = ExtResource("2_wael4")
+theme_override_font_sizes/font_size = 45
+text = "Yipee!"
+
+[node name="yap" type="Label" parent="SubViewportContainer/ui"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 532.0
+offset_right = 791.0
+offset_bottom = 588.0
+theme_override_fonts/font = ExtResource("2_wael4")
+theme_override_font_sizes/font_size = 26
+text = "Thanks for playing dawg"
+autowrap_mode = 1
+
+[node name="press e to see" type="Label" parent="SubViewportContainer/ui"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 270.0
+offset_right = 801.0
+offset_bottom = 373.0
+theme_override_colors/font_color = Color(0.543871, 0.894594, 1, 1)
+theme_override_fonts/font = ExtResource("2_wael4")
+theme_override_font_sizes/font_size = 66
+text = "PRESS 'E' TO SEE"
+horizontal_alignment = 1
+script = ExtResource("8_lhjlu")
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
@@ -115,7 +223,7 @@ shape = SubResource("BoxShape3D_82kw3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.7824)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/game/camera_areas/cam_2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.618165, 2.84232, 4.46496)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.368165, 3.18463, 4.46496)
 shape = SubResource("BoxShape3D_hb1u3")
 
 [node name="cam_3" type="Area3D" parent="SubViewportContainer/SubViewport/game/camera_areas"]
@@ -131,6 +239,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.7824)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/game/camera_areas/cam_4"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -5.6384, 2.84232, 1.9132)
 shape = SubResource("BoxShape3D_s5guh")
+
+[node name="cam_5" type="Area3D" parent="SubViewportContainer/SubViewport/game/camera_areas"]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 5, 0, -21.7824)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/game/camera_areas/cam_5"]
+transform = Transform3D(0.707107, 0, 0.707108, 0, 1, 0, -0.707108, 0, 0.707107, -6.24564, 3.83819, 0.734217)
+shape = SubResource("BoxShape3D_nnuo3")
+
+[node name="cam_6" type="Area3D" parent="SubViewportContainer/SubViewport/game/camera_areas"]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 5, 0, -21.7824)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/game/camera_areas/cam_6"]
+transform = Transform3D(0.866026, 0, 0.500001, 0, 1, 0, -0.500001, 0, 0.866026, -12.2949, 5.81954, -8.58265)
+shape = SubResource("BoxShape3D_fm7b4")
+
+[node name="cam_7" type="Area3D" parent="SubViewportContainer/SubViewport/game/camera_areas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.7824)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/game/camera_areas/cam_7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.86817, 1.43463, 5.46496)
+shape = SubResource("BoxShape3D_tccfs")
 
 [node name="player" parent="SubViewportContainer/SubViewport/game" node_paths=PackedStringArray("camera") instance=ExtResource("10_87lgo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -234,3 +363,6 @@ transform = Transform3D(-1.49012e-08, 0, -1, 0, 1, 0, 1, 0, -1.49012e-08, 2.5, -
 [connection signal="body_entered" from="SubViewportContainer/SubViewport/game/camera_areas/cam_2" to="SubViewportContainer/SubViewport/game/camera_controller" method="_on_cam_2_body_entered"]
 [connection signal="body_entered" from="SubViewportContainer/SubViewport/game/camera_areas/cam_3" to="SubViewportContainer/SubViewport/game/camera_controller" method="_on_cam_3_body_entered"]
 [connection signal="body_entered" from="SubViewportContainer/SubViewport/game/camera_areas/cam_4" to="SubViewportContainer/SubViewport/game/camera_controller" method="_on_cam_4_body_entered"]
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/game/camera_areas/cam_5" to="SubViewportContainer/SubViewport/game/camera_controller" method="_on_cam_5_body_entered"]
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/game/camera_areas/cam_6" to="SubViewportContainer/SubViewport/game/camera_controller" method="_on_cam_6_body_entered"]
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/game/camera_areas/cam_7" to="SubViewportContainer/SubViewport/game/camera_controller" method="_on_cam_7_body_entered"]

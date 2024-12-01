@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dgcvo2g1mjjcq"
+path="res://.godot/imported/twink le.mp3-d4285ba22fa50de556bc03bd18b51579.mp3str"
+
+[deps]
+
+source_file="res://audio/twink le.mp3"
+dest_files=["res://.godot/imported/twink le.mp3-d4285ba22fa50de556bc03bd18b51579.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

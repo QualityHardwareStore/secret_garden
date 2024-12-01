@@ -62,9 +62,8 @@ func _physics_process(delta):
 	print(Global.keycount)
 	
 	if position.y < -10:
-		await get_tree().create_timer(1.0).timeout
 		position = Vector3(0,1,0)
-		
+		$fall.play()
 		#add code here to respawn
 	
 	
