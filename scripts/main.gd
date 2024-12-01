@@ -11,6 +11,8 @@ func _input(event: InputEvent) -> void:
 		if spiritvision == false:
 			Global.spirit.emit()
 			spiritvision = true
+			$spiritbell.play()
 		elif spiritvision == true:
 			Global.real.emit()
 			spiritvision = false
+			$spiritbell2.play()

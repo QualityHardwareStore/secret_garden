@@ -10,6 +10,8 @@ var target_velocity = Vector3.ZERO
 signal is_running
 signal is_not_running
 
+var walkloop
+
 func _ready() -> void:
 	pass
 
@@ -19,6 +21,7 @@ func _physics_process(delta):
 	
 	if not is_on_floor():
 		target_velocity += get_gravity() * delta
+		
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		target_velocity.y = JUMP_VELOCITY
@@ -58,8 +61,22 @@ func _physics_process(delta):
 	
 	print(is_on_floor())
 	
-	#if position.y < -10:
-		#pass
-		##add code here to respawn
+	if position.y < -10:
+		await get_tree().create_timer(1.0).timeout
+		position = Vector3(0,1,0)
+		
+		#add code here to respawn
 	
 	
+	
+
+
+func _on_is_not_running() -> void:
+	walkloop = false
+	$walknoise.stop()
+
+
+func _on_is_running() -> void:
+	if walkloop == false:
+		$walknoise.play()
+		walkloop = true

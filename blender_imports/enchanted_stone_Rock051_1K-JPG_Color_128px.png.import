@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j0p40xr3jly5"
-path.s3tc="res://.godot/imported/floor_test_Rock051_1K-JPG_Color_128px.png-bd9e3274ac8cff833003fd3f1555cd0c.s3tc.ctex"
+uid="uid://dt5o6xm73wvby"
+path.s3tc="res://.godot/imported/enchanted_stone_Rock051_1K-JPG_Color_128px.png-128f7edbde2ba29883f3d3aaa0012d33.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://blender_imports/floor_test_Rock051_1K-JPG_Color_128px.png"
-dest_files=["res://.godot/imported/floor_test_Rock051_1K-JPG_Color_128px.png-bd9e3274ac8cff833003fd3f1555cd0c.s3tc.ctex"]
+source_file="res://blender_imports/enchanted_stone_Rock051_1K-JPG_Color_128px.png"
+dest_files=["res://.godot/imported/enchanted_stone_Rock051_1K-JPG_Color_128px.png-128f7edbde2ba29883f3d3aaa0012d33.s3tc.ctex"]
 
 [params]
 

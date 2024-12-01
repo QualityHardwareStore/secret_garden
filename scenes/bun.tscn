@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://cbm4rqw2ae3af"]
+[gd_scene load_steps=15 format=4 uid="uid://cbm4rqw2ae3af"]
 
 [ext_resource type="Script" path="res://scripts/bun.gd" id="1_c5brn"]
 [ext_resource type="Texture2D" uid="uid://k2bvkdulhfey" path="res://blender_imports/bun_bun.png" id="1_fsvax"]
+[ext_resource type="PackedScene" uid="uid://dkauvcfepjrdc" path="res://blender_imports/enchanted_stone.glb" id="3_1i42x"]
+[ext_resource type="Script" path="res://scripts/spirit_maze.gd" id="4_twdim"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usy8s"]
 resource_name = "bun"
@@ -387,7 +389,7 @@ bones/0/name = "Bone"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 bones/0/enabled = true
-bones/0/position = Vector3(0, 0, 0)
+bones/0/position = Vector3(0, -0.0602023, 0)
 bones/0/rotation = Quaternion(0, 0, 0, 1)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Bone.002"
@@ -395,28 +397,28 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.94019, -0.338101, -0.0415896, 0.338382, 0.912883, 0.228345, -0.0392372, -0.228761, 0.972691, -0.324599, 1.04606, 0)
 bones/1/enabled = true
 bones/1/position = Vector3(-0.324599, 1.04606, 0)
-bones/1/rotation = Quaternion(-0.11685, -0.000601334, 0.172929, 0.977978)
+bones/1/rotation = Quaternion(-0.144204, 0.00424391, 0.172878, 0.974321)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.003"
 bones/2/parent = 1
 bones/2/rest = Transform3D(0.999988, -0.00328655, 0.00366147, 0.00347635, 0.998583, -0.0530985, -0.00348177, 0.0531105, 0.998582, -5.12227e-08, 0.71633, -4.09782e-08)
 bones/2/enabled = true
 bones/2/position = Vector3(-5.12227e-08, 0.71633, -4.09782e-08)
-bones/2/rotation = Quaternion(0.0265617, 0.00178645, 0.00169133, 0.999644)
+bones/2/rotation = Quaternion(-0.0451226, 0.0277509, 0.00404302, 0.998588)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Bone.004"
 bones/3/parent = 0
 bones/3/rest = Transform3D(0.947976, 0.316901, -0.0302602, -0.307447, 0.93604, 0.171188, 0.0825745, -0.152979, 0.984774, 0.307447, 1.07751, -0.0302481)
 bones/3/enabled = true
 bones/3/position = Vector3(0.307447, 1.07751, -0.0302481)
-bones/3/rotation = Quaternion(-0.0824046, -0.0286831, -0.158712, 0.983462)
+bones/3/rotation = Quaternion(-0.0573722, -0.0246383, -0.15939, 0.985239)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Bone.005"
 bones/4/parent = 3
 bones/4/rest = Transform3D(0.998107, 0.0614872, 0.00156838, -0.0614966, 0.997136, 0.0440199, 0.00114277, -0.044033, 0.99903, -3.35276e-08, 0.805035, 2.23517e-08)
 bones/4/enabled = true
 bones/4/position = Vector3(-3.35276e-08, 0.805035, 2.23517e-08)
-bones/4/rotation = Quaternion(-0.022029, 0.000106481, -0.030768, 0.999284)
+bones/4/rotation = Quaternion(-0.176353, -0.0570429, -0.0265276, 0.982315)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Bone.001"
 bones/5/parent = 0
@@ -429,15 +431,15 @@ bones/6/name = "Bone.001.L"
 bones/6/parent = -1
 bones/6/rest = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -0.497937, -0.592059, 7.95484e-08)
 bones/6/enabled = true
-bones/6/position = Vector3(-0.633959, -0.209848, 0.990387)
-bones/6/rotation = Quaternion(-0.883437, 0, 0, 0.468551)
+bones/6/position = Vector3(-0.497937, -0.592059, 7.95484e-08)
+bones/6/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "Bone.001.R"
 bones/7/parent = -1
 bones/7/rest = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.497937, -0.592059, 7.95484e-08)
 bones/7/enabled = true
-bones/7/position = Vector3(0.566347, -0.41758, -0.544142)
-bones/7/rotation = Quaternion(-0.396268, 0, 0, 0.918135)
+bones/7/position = Vector3(0.497937, -0.592059, 7.95484e-08)
+bones/7/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 bones/7/scale = Vector3(1, 1, 1)
 
 [node name="body" type="MeshInstance3D" parent="Armature/Skeleton3D"]
@@ -456,3 +458,7 @@ skin = SubResource("Skin_d0pcm")
 libraries = {
 "": SubResource("AnimationLibrary_rnff1")
 }
+
+[node name="enchanted_stone" parent="." instance=ExtResource("3_1i42x")]
+transform = Transform3D(3.125, 0, 0, 0, 3.125, 0, 0, 0, 3.125, -0.287435, 1.16144, -0.654811)
+script = ExtResource("4_twdim")

@@ -31,6 +31,12 @@ spirit=""
 player=""
 real=""
 
+[importer_defaults]
+
+animation_library={
+"animation/fps": 12.0
+}
+
 [input]
 
 up={

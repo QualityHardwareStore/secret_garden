@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bigr03nnfhd2m"
-path.s3tc="res://.godot/imported/floor_test_mosstest_2.png-e3ab1f82d8f7e6241df488df2c533617.s3tc.ctex"
+uid="uid://ds8hsk55monhh"
+path.s3tc="res://.godot/imported/gardencube_clover_side.png-5f3cbf9b0d901cb596d63bb21349e646.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "a7573f7afbc3cff972a8129005ada532"
+"md5": "7d46893837b5aceb2c0133c54ffd1027"
 }
 
 [deps]
 
-source_file="res://blender_imports/floor_test_mosstest_2.png"
-dest_files=["res://.godot/imported/floor_test_mosstest_2.png-e3ab1f82d8f7e6241df488df2c533617.s3tc.ctex"]
+source_file="res://blender_imports/cubes/gardencube_clover_side.png"
+dest_files=["res://.godot/imported/gardencube_clover_side.png-5f3cbf9b0d901cb596d63bb21349e646.s3tc.ctex"]
 
 [params]
 

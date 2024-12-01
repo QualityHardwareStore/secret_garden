@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfx6u1sdxrajd"
-path.s3tc="res://.godot/imported/floor_test_mosstest_4.png-58c035728d199fa717c6fc48b368d77b.s3tc.ctex"
+uid="uid://cqptllsibwn3y"
+path.s3tc="res://.godot/imported/level_test_2_clover_side_shadow.png-bd35f63caf3f536d13442e2845e4b4dc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "17e70d6180801c36857ead63a33d721e"
+"md5": "bf6d7f89f9750eaf337b3e4d1838f314"
 }
 
 [deps]
 
-source_file="res://blender_imports/floor_test_mosstest_4.png"
-dest_files=["res://.godot/imported/floor_test_mosstest_4.png-58c035728d199fa717c6fc48b368d77b.s3tc.ctex"]
+source_file="res://blender_imports/level_test_2_clover_side_shadow.png"
+dest_files=["res://.godot/imported/level_test_2_clover_side_shadow.png-bd35f63caf3f536d13442e2845e4b4dc.s3tc.ctex"]
 
 [params]
 

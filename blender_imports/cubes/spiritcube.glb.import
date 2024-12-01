@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d260hbco743lg"
-path="res://.godot/imported/floor_test.glb-886f2c9bb549152b7997a7c13b00b984.scn"
+uid="uid://beam2mcawc1vf"
+path="res://.godot/imported/spiritcube.glb-743bc6be9a2f34685f39bfb3249861f5.scn"
 
 [deps]
 
-source_file="res://blender_imports/floor_test.glb"
-dest_files=["res://.godot/imported/floor_test.glb-886f2c9bb549152b7997a7c13b00b984.scn"]
+source_file="res://blender_imports/cubes/spiritcube.glb"
+dest_files=["res://.godot/imported/spiritcube.glb-743bc6be9a2f34685f39bfb3249861f5.scn"]
 
 [params]
 
