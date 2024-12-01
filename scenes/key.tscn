@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://7o01h8b6k5lc"]
+[gd_scene load_steps=9 format=4 uid="uid://7o01h8b6k5lc"]
 
+[ext_resource type="Script" path="res://scripts/key.gd" id="1_1r4yl"]
 [ext_resource type="Texture2D" uid="uid://dc4rl7tlxquol" path="res://blender_imports/key_crappy_metal_128px.png" id="1_jkfur"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qpx2q"]
@@ -68,8 +69,12 @@ _data = {
 "spin": SubResource("Animation_0qrji")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vdi2x"]
+size = Vector3(0.794067, 0.849609, 0.798828)
+
 [node name="key" type="Node3D"]
 transform = Transform3D(0.996329, 0, 0, 0, 0.996329, 0, 0, 0, 0.996329, 0, 0, 0)
+script = ExtResource("1_1r4yl")
 
 [node name="key" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.257843, -0.108953, -0.257843, -0.269107, 2.0317e-08, -0.269107, 0.077041, 0.364646, -0.077041, 0, 0.136802, 0)
@@ -80,3 +85,11 @@ skeleton = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_8mu23")
 }
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00933838, 0.316231, 0)
+shape = SubResource("BoxShape3D_vdi2x")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

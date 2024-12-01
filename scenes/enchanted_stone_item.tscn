@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://b4605g01prjdj"]
+[gd_scene load_steps=9 format=4 uid="uid://b4605g01prjdj"]
 
+[ext_resource type="Script" path="res://scenes/enchanted_stone_item.gd" id="1_hrp1q"]
 [ext_resource type="Texture2D" uid="uid://ca2qtjwes2hh0" path="res://blender_imports/enchanted_stone_item_Rock051_1K-JPG_Color_128px.png" id="1_kar77"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4iph"]
@@ -68,8 +69,12 @@ _data = {
 "spin_002": SubResource("Animation_3lodo")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gx1s7"]
+size = Vector3(0.591797, 0.589844, 0.648682)
+
 [node name="enchanted_stone_item" type="Node3D"]
 transform = Transform3D(0.994222, 0, 0, 0, 0.994222, 0, 0, 0, 0.994222, 0, 0, 0)
+script = ExtResource("1_hrp1q")
 
 [node name="enchanted_stone_small" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.84386e-06, -0.132971, -0.171771, -8.04145e-09, -0.171771, 0.132971, -0.116324, 3.26271e-06, 4.19021e-06, 0, 0.0341994, 0)
@@ -80,3 +85,11 @@ skeleton = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_hegio")
 }
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0931695, 0)
+shape = SubResource("BoxShape3D_gx1s7")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -59,7 +59,7 @@ func _physics_process(delta):
 	velocity = target_velocity
 	move_and_slide()
 	
-	print(is_on_floor())
+	print(Global.keycount)
 	
 	if position.y < -10:
 		await get_tree().create_timer(1.0).timeout

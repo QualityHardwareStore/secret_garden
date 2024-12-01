@@ -13,4 +13,5 @@ func _on_real():
 
 
 func _on_spirit():
-	visible = true
+	if Global.spiritrock == true:
+		visible = true
